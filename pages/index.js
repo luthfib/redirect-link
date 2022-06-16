@@ -3,7 +3,7 @@ export default function Home() {
         if (typeof window !== 'undefined') {
             window.open(
                 'https://survey.napier.ac.uk/n/Kali2024.aspx',
-                '_blank'
+                '_system'
             );
         }
     }
