@@ -4,7 +4,7 @@ export default function Home() {
     const [userData, setuserData] = useState('');
     const [onInstagram, setOnIstagram] = useState(false);
     const [onFacebook, setFnFacebook] = useState(false);
-    function handleClick() {
+    function getUserData() {
         console.log(navigator.userAgent);
         setuserData(navigator.userAgent);
         if (userData.indexOf('Instagram') !== -1) {
@@ -14,10 +14,16 @@ export default function Home() {
             setFnFacebook(true);
         }
     }
-
+    function handleclick() {
+        window.open(
+            'https://survey.napier.ac.uk/n/Kali2024.aspx ',
+            '_system',
+            'location=yes'
+        );
+    }
     return (
         <>
-            <button onClick={handleClick}>userData</button>
+            <button onClick={getUserData}>Display user data</button>
 
             <a
                 href="https://survey.napier.ac.uk/n/Kali2024.aspx"
@@ -29,6 +35,17 @@ export default function Home() {
             <br />
             <h3>On instagram? {`${onInstagram}`}</h3>
             <h3>On facebook? {`${onFacebook}`}</h3>
+
+            <div>
+                {onInstagram && (
+                    <button onClick={handleclick}>
+                        instagram open browser
+                    </button>
+                )}
+                {onFacebook && (
+                    <button onClick={handleclick}>Facebook open browser</button>
+                )}
+            </div>
         </>
     );
 }
